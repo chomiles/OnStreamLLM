@@ -659,6 +659,7 @@ class MainWindow(QMainWindow):
         self._runtime_install_active: str | None = None
         self._runtime_install_batch_total: int = 0
         self._runtime_required_install_batch_active = False
+        self._runtime_restart_notice_pending = False
         self._runtime_restart_required_names: set[str] = set()
         self._runtime_panel_collapsed = False
         self._i18n_form_labels: dict[str, QLabel] = {}
@@ -2744,6 +2745,7 @@ class MainWindow(QMainWindow):
         self._runtime_install_queue = []
         self._runtime_install_batch_total = 1
         self._runtime_required_install_batch_active = False
+        self._runtime_restart_notice_pending = True
         self._begin_runtime_install(dependency, reinstall=False)
 
     def _confirm_optional_runtime_install(self, name: str) -> bool:
@@ -2789,6 +2791,7 @@ class MainWindow(QMainWindow):
         self._runtime_install_queue = queue[1:]
         self._runtime_install_batch_total = len(queue)
         self._runtime_required_install_batch_active = True
+        self._runtime_restart_notice_pending = True
         self._begin_runtime_install(first_dependency, reinstall=first_reinstall)
 
     def _validate_runtime_cuda_requirements(self, names: tuple[str, ...] | list[str]) -> bool:
@@ -2820,6 +2823,7 @@ class MainWindow(QMainWindow):
         self._runtime_install_queue.clear()
         self._runtime_install_batch_total = 0
         self._runtime_required_install_batch_active = False
+        self._runtime_restart_notice_pending = False
         self._runtime_restart_required_names.clear()
         clear_runtime_install_queue()
         self._refresh_runtime_dependency_panel()
@@ -2990,6 +2994,7 @@ class MainWindow(QMainWindow):
         self._runtime_install_queue = pending
         self._runtime_install_batch_total = max(1, len(pending))
         self._runtime_required_install_batch_active = True
+        self._runtime_restart_notice_pending = True
         self._set_status(self._t("msg.runtime_resume_queue", count=len(pending)))
         self._refresh_runtime_dependency_panel()
         self._start_next_runtime_install()
@@ -3023,9 +3028,10 @@ class MainWindow(QMainWindow):
             self._begin_runtime_install(dependency, reinstall=next_reinstall)
             return
         LOGGER.info("Runtime install queue drained")
-        show_required_restart_notice = self._runtime_required_install_batch_active
+        show_restart_notice = self._runtime_restart_notice_pending
         self._runtime_install_batch_total = 0
         self._runtime_required_install_batch_active = False
+        self._runtime_restart_notice_pending = False
         clear_runtime_install_queue()
         if all_runtime_dependencies_installed():
             self.download_progress.setValue(100)
@@ -3033,7 +3039,7 @@ class MainWindow(QMainWindow):
             self._set_download_status_text(self._t("runtime.all_installed"))
             self._set_status(self._t("runtime.all_installed"))
         self._refresh_runtime_dependency_panel()
-        if show_required_restart_notice and all_runtime_dependencies_installed():
+        if show_restart_notice:
             self._prompt_runtime_restart()
             self._runtime_restart_required_names.clear()
         elif self._runtime_restart_required_names:
@@ -3044,6 +3050,8 @@ class MainWindow(QMainWindow):
     def _runtime_download_finished(self, name: str, result: str) -> None:
         self._runtime_downloads.pop(name, None)
         if result.startswith("ERROR:"):
+            if not self._runtime_install_queue:
+                self._runtime_restart_notice_pending = False
             self._set_download_speed_text(self._t("state.failed"))
             self._set_download_status_text(self._t("msg.runtime_failed", name=name, error=result[6:]))
             self._set_status(self._t("msg.runtime_failed_status", name=name, error=result[6:]))
@@ -3051,6 +3059,8 @@ class MainWindow(QMainWindow):
             self._refresh_runtime_dependency_panel()
             return
         if result.startswith("CANCELLED:"):
+            if not self._runtime_install_queue:
+                self._runtime_restart_notice_pending = False
             dependency = next(
                 (item for item in RUNTIME_DEPENDENCIES if item.name == name),
                 None,
