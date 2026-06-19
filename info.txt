@@ -1,0 +1,56 @@
+🇰🇷 한국어 버전 (Korean)
+OnStreamLLM v0.1
+
+언어의 장벽을 넘어, 우리의 목소리가 실시간으로 이어지는 곳.
+OnStreamLLM은 마이크와 스피커의 오디오 입출력, 화면 속 텍스트, 그리고 당신의 소중한 채팅까지 실시간으로 번역해 가장 빠르게 전달하는 로컬 LLM 기반의 번역 도구입니다.
+
+국경이라는 선을 지우고 서로의 일상을 공유하는 수많은 소규모 스트리머 분들, 그리고 ARK: Survival Ascended 세계에서 함께 땀 흘리는 유저분들을 위해 마음을 담아 만들었습니다.
+
+LLM기반으로 AI연산 관련 라이브러리를 사용하기 때문에 구동/로딩속도가 다소 시간이 소요 됩니다. 가급적 RTX3060급 이상 , 시스템 메모리 32기가 이상 환경에서 사용을 권장합니다.
+
+💡 안내해 드립니다
+본 프로그램은 오픈소스(Github)로 투명하게 공개되어 있습니다. 다만 개인 개발 프로그램 특성상, 일부 백신 프로그램에서 멀웨어 등으로 오진할 수 있으니 안심하고 예외 등록 후 사용해 주세요.
+
+개발자: 조마일즈 (@chomiles)
+
+문의: mileschokr@gmail.com
+
+Github: https://github.com/chomiles
+
+🇯🇵 일본어 버전 (Japanese)
+OnStreamLLM v0.1
+
+言葉の壁を越えて、私たちの声がリアルタイムでつながる場所。
+OnStreamLLMは、マイクやスピーカーの音声、画面のテキスト、そしてあなたの言葉（チャット）をローカルLLMの力で瞬時に翻訳し、届けるために生まれた翻訳ツールです。
+
+国境を越え、つながり、彩り豊かな交流を広げる配信者の皆様、そして ARK: Survival Ascended の世界で共に冒険を楽しむすべてのプレイヤーの皆様へ、心からのエールを込めて作りました。
+
+LLMベースのAI演算ライブラリを使用するため、起動やモデル読み込みには少し時間がかかります。できるだけRTX 3060クラス以上のGPUと、32GB以上のシステムメモリ環境での使用をおすすめします。
+
+💡 大切なお知らせ
+本ツールはGithubにてオープンソースとして公開しています。個人の開発アプリであるため、セキュリティソフトによっては誤ってマルウェアとして検知される場合があります。安全なプログラムですので、必要に応じて除外設定をしてご利用ください。
+
+開発者: チョ・マイルズ (@chomiles)
+
+お問い合わせ: mileschokr@gmail.com
+
+Github: https://github.com/chomiles
+
+🇺🇸 영어 버전 (English)
+OnStreamLLM v0.1
+
+Beyond the barrier of language, connecting our voices in real-time.
+OnStreamLLM is a local LLM-powered translation tool designed to seamlessly translate audio input/output, screen text, and your chat messages, delivering them at the speed of conversation.
+
+This project was built with love for the indie streamers erasing borders to share their worlds, and for the ARK: Survival Ascended community surviving and thriving together.
+
+Because OnStreamLLM uses LLM-based AI compute libraries, startup and model loading can take some time. We recommend an RTX 3060-class or better GPU and 32 GB or more system memory.
+
+💡 A Quick Note
+This is an open-source project shared freely on GitHub. As a passionately crafted indie app, some antivirus software might flag it as a false positive (malware). Please rest assured it is safe, and feel free to add an exception to run it.
+
+Developer: Cho Miles (@chomiles)
+
+Contact: mileschokr@gmail.com
+
+GitHub: https://github.com/chomiles

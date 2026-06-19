@@ -1,0 +1,35 @@
+{
+  "models": {
+    "SenseVoice": {
+      "repo_id": "csukuangfj/sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17",
+      "url": "https://huggingface.co/csukuangfj/sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17"
+    },
+    "Hy-MT2": {
+      "repo_id": "tencent/Hy-MT2-1.8B-GGUF",
+      "url": "https://huggingface.co/tencent/Hy-MT2-1.8B-GGUF"
+    },
+    "Hy-MT2 2bit": {
+      "repo_id": "tencent/Hy-MT2-1.8B-2bit-GGUF",
+      "url": "https://huggingface.co/tencent/Hy-MT2-1.8B-2bit-GGUF"
+    },
+    "Qwen ASR 0.6B": {
+      "repo_id": "Qwen/Qwen3-ASR-0.6B",
+      "url": "https://huggingface.co/Qwen/Qwen3-ASR-0.6B"
+    },
+    "Qwen ASR 1.7B": {
+      "repo_id": "Qwen/Qwen3-ASR-1.7B",
+      "url": "https://huggingface.co/Qwen/Qwen3-ASR-1.7B"
+    },
+    "Qwen 4B": {
+      "repo_id": "Qwen/Qwen3-4B",
+      "url": "https://huggingface.co/Qwen/Qwen3-4B"
+    },
+    "Qwen 8B AWQ": {
+      "repo_id": "Qwen/Qwen3-8B-AWQ",
+      "url": "https://huggingface.co/Qwen/Qwen3-8B-AWQ"
+    }
+  },
+  "runtime_libraries": {
+    "note": "Torch, llama, SenseVoice, PaddleOCR runtime zip files must be uploaded separately before runtime_manifest.json can point to them. Model repositories above are not runtime zip packages."
+  }
+}

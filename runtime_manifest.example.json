@@ -1,0 +1,31 @@
+{
+  "Torch": {
+    "method": "pip",
+    "packages": ["torch"],
+    "index_url": "https://download.pytorch.org/whl/cu128",
+    "note": "NVIDIA GPU가 없으면 packages를 torch>=2.5 로 바꾸고 index_url을 제거하세요."
+  },
+  "llama": {
+    "method": "pip",
+    "packages": ["llama-cpp-python==0.3.30"],
+    "extra_index_url": "https://abetlen.github.io/llama-cpp-python/whl/cu124",
+    "follow_up": ["numpy>=1.26,<2.4"]
+  },
+  "SenseVoice": {
+    "method": "pip",
+    "packages": ["sherpa-onnx>=1.13.2"],
+    "note": "SenseVoice는 GPU 충돌 방지를 위해 CPU 전용으로 설치합니다."
+  },
+  "PaddleOCR": {
+    "method": "pip",
+    "packages": [
+      "paddleocr>=3.7",
+      "paddlepaddle>=3.2",
+      "lxml>=5.3",
+      "openpyxl>=3.1",
+      "premailer>=3.10",
+      "python-docx>=1.1",
+      "beautifulsoup4>=4.12"
+    ]
+  }
+}

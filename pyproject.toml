@@ -1,0 +1,52 @@
+[project]
+name = "live-translate-studio"
+version = "0.1.0"
+description = "Real-time audio and screen translation with OBS overlay support"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "fastapi>=0.115",
+    "huggingface-hub>=0.30",
+    "mss>=10.0",
+    "numpy>=1.26,<2.4",
+    "pillow>=10.4",
+    "pydantic>=2.9",
+    "pyside6>=6.8",
+    "qwen-asr>=0.0.4",
+    "llama-cpp-python>=0.3.30",
+    "sherpa-onnx>=1.13.2",
+    "soundcard>=0.4.4",
+    "torch>=2.5",
+    "tqdm>=4.67,<4.69",
+    "transformers==4.57.6",
+    "uvicorn[standard]>=0.34",
+    "websockets>=14.0",
+]
+
+[project.optional-dependencies]
+ocr = [
+    "paddleocr>=3.7",
+    "paddlepaddle>=3.2",
+    "lxml>=5.3",
+    "openpyxl>=3.1",
+    "premailer>=3.10",
+    "python-docx>=1.1",
+    "beautifulsoup4>=4.12",
+]
+dev = ["pytest>=8.3", "ruff>=0.9"]
+
+[project.scripts]
+live-translate = "live_translate.main:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/live_translate"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100

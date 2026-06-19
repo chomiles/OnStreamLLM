@@ -1,0 +1,9 @@
+.venv/
+.python312/
+models/
+settings.json
+settings.tmp
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
