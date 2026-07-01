@@ -1,3 +1,8 @@
+
+
+<img width="973" height="907" alt="스크린샷 2026-07-01 142516" src="https://github.com/user-attachments/assets/142edae1-0767-4bba-a16e-4ed81b57c204" />
+
+
 # OnStreamLLM
 
 OnStreamLLM is a Windows desktop tool for live audio and screen translation. It can translate input audio, loopback/output audio, and selected screen regions, then show captions locally, in a popup, or through an OBS browser overlay.
